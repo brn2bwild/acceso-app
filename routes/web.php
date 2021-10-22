@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtletaController;
+use App\Http\Controllers\RegistroController;
 use App\Models\Atleta;
 
 /*
@@ -15,14 +16,19 @@ use App\Models\Atleta;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::resource('atletas', AtletaController::class);
+Route::resource('registros', RegistroController::class)->only([
+    'index'
+]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::view('/privacidad', 'privacy')->name('privacy');
 
 require __DIR__.'/auth.php';

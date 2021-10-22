@@ -5,7 +5,7 @@
 @section('content')
    <div class="container w-full md:w-4/5 xl:w-4/5 mx-auto px-2">
       {{-- <div class="bg-green-400 bg-opacity-100 text-gray-100 text-center"><p class="text-xl">Datatables - Tailwind</p></div> --}}
-      <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">Atletas registrados</h1>
+      <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">Atletas</h1>
       <div id="recipients" class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
          <a class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" href="{{route('atletas.create')}}">Agregar</a>
          <table id="atletas" class="stripe hover" style="width:100%; padding-top:1em; padding-bottom:1em">
@@ -17,14 +17,13 @@
                   <th data-priority="2" class="w-1/6">Apellido Paterno</th>
                   <th data-priority="3" class="w-1/6">Apellido Materno</th>
                   <th data-priority="4" class="w-1/6">Correo</th>
-                  <th data-priority="5" class="w-1/6">Autorizado</th>
+                  <th data-priority="5" class="w-1/6">Autorización</th>
                   <th data-priority="6" class="w-1/6">Acciones</th>
                </tr>
             </thead>
             <tbody>
                @forelse ($atletas as $atleta)
                   <tr>
-
                      {{-- <td>{{$atleta->id}}</td> --}}
                      {{-- <td>
                         <img src="{{asset('storage').'/'.$atleta->Foto}}" width="100" alt="">
@@ -56,7 +55,7 @@
                      </td>
                   </tr>
                @empty
-                  <h1>No hay registros para mostrar</h1>
+                  
                @endforelse
             </tbody>
          </table>

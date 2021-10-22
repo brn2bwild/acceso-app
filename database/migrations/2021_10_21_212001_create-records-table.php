@@ -1,10 +1,11 @@
 <?php
 
+use Facade\Ignition\Tabs\Tab;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAtletasTable extends Migration
+class CreateRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +14,13 @@ class CreateAtletasTable extends Migration
      */
     public function up()
     {
-        Schema::create('atletas', function (Blueprint $table) {
+        Schema::create('registros', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nombre');
             $table->string('apellidoPaterno');
             $table->string('apellidoMaterno');
-            $table->string('Correo');
-            $table->string('Foto');
-            $table->string('Autorizado')->default('no_autorizado');
+            $table->timestamp('horaAcceso');
+            $table->string('accesoAutorizado');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateAtletasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('atletas');
+        //
     }
 }
