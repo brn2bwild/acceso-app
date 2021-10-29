@@ -13,7 +13,7 @@
                   <th data-priority="2" class="w-1/5">Apellido Paterno</th>
                   <th data-priority="3" class="w-1/5">Apellido Materno</th>
                   <th data-priority="4" class="w-1/5">Hora Acceso</th>
-                  <th data-priority="5" class="w-1/5">Acceso Autorizado</th>
+                  <th data-priority="5" class="w-1/5">Lugar</th>
                </tr>
             </thead>
             <tbody>
@@ -23,7 +23,7 @@
                      <td>{{$registro->apellidoPaterno}}</td>
                      <td>{{$registro->apellidoMaterno}}</td>
                      <td>{{$registro->horaAcceso}}</td>
-                     <td>{{$registro->accesoAutorizado}}</td>
+                     <td>{{$registro->lugarAcceso}}</td>
                   </tr>
                @empty
                    

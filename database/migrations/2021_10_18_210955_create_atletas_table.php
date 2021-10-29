@@ -20,7 +20,8 @@ class CreateAtletasTable extends Migration
             $table->string('apellidoMaterno');
             $table->string('Correo');
             $table->string('Foto');
-            $table->string('Autorizado')->default('no_autorizado');
+            $table->string('Autorizado')->default('false');
+            $table->string('RFID');
             $table->timestamps();
         });
     }

@@ -19,8 +19,9 @@ class CreateRecordsTable extends Migration
             $table->string('Nombre');
             $table->string('apellidoPaterno');
             $table->string('apellidoMaterno');
+            $table->string('RFID');
             $table->timestamp('horaAcceso');
-            $table->string('accesoAutorizado');
+            $table->string('lugarAcceso');
             $table->timestamps();
         });
     }

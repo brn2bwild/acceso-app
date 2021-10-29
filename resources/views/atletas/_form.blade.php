@@ -13,22 +13,37 @@
 </div>
 
 <div>
-      <label for="Nombre" class="block py-1">Apellido Materno</label>
+      <label for="apellidoPaterno" class="block py-1">Apellido Materno</label>
       <input type="text" name="apellidoPaterno" id="apellidopaterno" value="{{old('apellidoPaterno',$atleta->apellidoPaterno)}}" class="w-full border border-gray-400 rounded focus:border-indigo-400">
 </div>
 
 <div>
-      <label for="Nombre" class="block py-1">Apellido Paterno</label>
+      <label for="apellidoMaterno" class="block py-1">Apellido Paterno</label>
       <input type="text" name="apellidoMaterno" id="apellidomaterno" value="{{old('apellidoMaterno',$atleta->apellidoMaterno)}}" class="w-full border border-gray-400 rounded focus:border-indigo-400">
 </div>
 
 <div>
-      <label for="Nombre" class="block py-1">Correo</label>
+      <label for="Correo" class="block py-1">Correo</label>
       <input type="text" name="Correo" id="correo" value="{{old('Correo',$atleta->Correo)}}" class="w-full border border-gray-400 rounded focus:border-indigo-400">
 </div>
 
+<div class="flex w-full">
+      <div class="w-1/2">
+            <label for="RFID" class="block py-1">RFID</label>
+            <input type="text" name="RFID" id="correo" value="{{old('Correo',$atleta->RFID)}}" class="w-full border border-gray-400 rounded focus:border-indigo-400 mr-4" maxlength="10">
+      </div>
+
+      <div class="inline-flex py-8 px-4 items-center justify-between">
+            <label for="Autorizado">Autorización</label>
+            <input type="checkbox" name="Autorizado" id="Autorizado" class="border border-gray-400 rounded focus:border-indigo-400 ml-4" maxlength="10"
+            @if ($atleta->Autorizado == 'true')
+                checked                
+            @endif>
+      </div>
+</div>
+
 <div>
-      <label for="Nombre" class="block py-1">Foto</label>
+      <label for="Foto" class="block py-1">Foto</label>
       <input type="file" name="Foto" id="foto" value="{{old('Foto',$atleta->Foto)}}" class="w-full border border-gray-400 rounded focus:border-indigo-400">
 </div>
 

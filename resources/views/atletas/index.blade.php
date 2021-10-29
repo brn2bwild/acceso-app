@@ -18,7 +18,8 @@
                   <th data-priority="3" class="w-1/6">Apellido Materno</th>
                   <th data-priority="4" class="w-1/6">Correo</th>
                   <th data-priority="5" class="w-1/6">Autorización</th>
-                  <th data-priority="6" class="w-1/6">Acciones</th>
+                  <th data-priority="6" class="w-1/6">RFID</th>
+                  <th data-priority="7" class="w-1/12">Acciones</th>
                </tr>
             </thead>
             <tbody>
@@ -32,7 +33,14 @@
                      <td>{{$atleta->apellidoMaterno}}</td>
                      <td>{{$atleta->apellidoPaterno}}</td>
                      <td>{{$atleta->Correo}}</td>
-                     <td>{{$atleta->Autorizado}}</td>
+                     <td>
+                        @if ($atleta->Autorizado == 'true')
+                           Autorizado
+                        @else
+                           No autorizado
+                        @endif
+                     </td>
+                     <td>{{$atleta->RFID}}</td>
                      <td class="justify-items-center">
                         <div class="flex items-center justify-items-center">
                            <a class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold rounded py-2 px-2 mr-2" href="{{route('atletas.edit', $atleta)}}">
@@ -63,7 +71,6 @@
    </div>
 @endsection
 
-
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>		
 <!--Datatables -->
@@ -78,5 +85,3 @@
       .responsive.recalc();
    });
 </script>
-
-   

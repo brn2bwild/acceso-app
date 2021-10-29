@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtletaController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\DispositivoController;
 use App\Models\Atleta;
 
 /*
@@ -17,13 +18,14 @@ use App\Models\Atleta;
 */
 
 // Route::get('/', function () {
-//     return view('welcome');
+//     return route('atletas.index');
 // });
 
 Route::resource('atletas', AtletaController::class);
 Route::resource('registros', RegistroController::class)->only([
     'index'
 ]);
+Route::resource('dispositivos', DispositivoController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

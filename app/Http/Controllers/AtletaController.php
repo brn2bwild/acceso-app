@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Atleta;
 use Illuminate\Http\Request;
-
 use App\Http\Requests\SaveAtletaRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,13 +40,26 @@ class AtletaController extends Controller
      */
     public function store(Request $request)
     {
+        $autorizado = $request->input('Autorizado') ? 'true' : 'false';
+
+        $request->validate([
+            'Nombre' => ['required', 'max:100'],
+            'apellidoPaterno' => ['required', 'max:100'],
+            'apellidoMaterno' => ['required', 'max:100'],
+            'Correo' => 'nullable',
+            'Foto' => ['image', 'mimes:jpeg,png,jpg', 'max:1014'],
+            'RFID' => ['required', 'max:10'],
+        ]);
+        
         $datosAtleta = request()->except('_token');
+        
         if($request->hasFile('Foto')){
-            $datosAtleta['Foto']=$request->file('Foto')->store('uploads', 'public');
+            $datosAtleta['Foto'] = $request->file('Foto')->store('uploads', 'public');
+            $datosAtleta['Autorizado'] = $autorizado;
+            Atleta::create($datosAtleta);
+            // return response()->json($datosAtleta);
+            return redirect()->route('atletas.index');
         }
-        Atleta::insert($datosAtleta);
-        // return response()->json($datosAtleta);
-        return redirect()->route('atletas.index');
     }
 
     /**
@@ -83,15 +95,17 @@ class AtletaController extends Controller
      */
     public function update(Request $request, Atleta $atleta)
     {
+        $autorizado = $request->input('Autorizado') ? 'true' : 'false';
         $datosAtleta = request()->except(['_token', '_method']);
         if($request->hasFile('Foto')){
             Atleta::findOrFail($atleta->id);
             Storage::delete('public/'.$atleta->Foto);
             $datosAtleta['Foto']=$request->file('Foto')->store('uploads', 'public');
         }
+        $datosAtleta['Autorizado'] = $autorizado;
         Atleta::where('id','=',$atleta->id)->update($datosAtleta);
         Atleta::findOrFail($atleta->id);
-        return redirect()->route('atletas.edit', $atleta);
+        return redirect()->route('atletas.index', $atleta);
     }
 
     /**

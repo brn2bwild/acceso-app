@@ -13,7 +13,7 @@ class SaveAtletaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,6 +28,14 @@ class SaveAtletaRequest extends FormRequest
             'apellidoPaterno' => ['required', 'max:100'],
             'apellidoMaterno' => ['required', 'max:100'],
             'Correo' => 'nullable',
+            'Foto' => ['image', 'mimes:jpeg,png,jpg', 'max:1014'],
+            // 'urlFoto' => ['required'],
+            'RFID' => ['required', 'max:10'],
         ];
+    }
+
+    public function setDirFoto($value)
+    {
+        $this->attributes()['Foto'] = strtolower($value);
     }
 }

@@ -15,6 +15,7 @@
             <div class="hidden md:flex items-center space-x-1">
                <a href="{{route('atletas.index')}}" class="py-4 px-3 text-gray-600 hover:text-gray-900">Atletas</a>
                <a href="{{route('registros.index')}}" class="py-4 px-3 text-gray-600 hover:text-gray-900">Registros</a>
+               <a href="{{route('dispositivos.index')}}" class="py-4 px-3 text-gray-600 hover:text-gray-900">Dispositivos</a>
             </div>
          </div>
          {{-- navegación secundaria --}}
@@ -36,8 +37,9 @@
    </div>
    {{-- mobile menu --}}
    <div class="mobile-menu hidden">
-      <a href="{{route('atletas.index')}}" class="block py-4 px-4 text-sm hover:bg-gray-200">Registros</a>
-      <a href="{{route('registros.index')}}" class="block py-4 px-4 text-sm hover:bg-gray-200">Accesos</a>
+      <a href="{{route('atletas.index')}}" class="block py-4 px-4 text-sm hover:bg-gray-200">Atletas</a>
+      <a href="{{route('registros.index')}}" class="block py-4 px-4 text-sm hover:bg-gray-200">Registros</a>
+      <a href="{{route('dispositivos.index')}}" class="block py-4 px-4 text-sm hover:bg-gray-200">Dispositivos</a>
    </div>
 </nav>
 

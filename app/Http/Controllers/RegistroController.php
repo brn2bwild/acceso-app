@@ -36,7 +36,8 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosRegistro = request()->except('_token1');
+        return response()->json($datosRegistro);
     }
 
     /**
